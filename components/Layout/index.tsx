@@ -1,14 +1,20 @@
-import Nav from "../Nav";
-type Props = {
-  children?: React.ReactNode;
-};
+import { PropsWithChildren, useState } from "react";
 
-const Layout = ({ children }: Props) => {
+import Footer from "../Footer";
+import Header from "../Header";
+
+type Props = PropsWithChildren<{}>;
+
+const Layout = ( {children}: Props) => {
+  
   return (
-    <div className="mx-6 md:mx-auto lg:max-w-2xl font-poppins">
-      <Nav />
-      <main>{children}</main>
-    </div>
+    <>
+      <Header />
+      <main className="relative z-20 max-w-3xl mx-auto bg-gray-100 xl:max-w-none font-poppins">
+        {children}
+      </main>
+      <Footer />
+    </>
   );
 };
 
